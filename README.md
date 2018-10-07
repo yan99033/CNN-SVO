@@ -1,8 +1,8 @@
 # CNN-SVO
 (Top) camera frames (Bottom) depth maps of the keyframes from Monodepth
 <p align="center">
- <img src="https://github.com/yan99033/CNN-VO/blob/master/gif/kitti_preview.gif" width="723" height="224">
- <img src="https://github.com/yan99033/CNN-VO/blob/master/gif/robotcar_preview.gif" width="723" height="224">
+ <img src="https://github.com/yan99033/CNN-SVO/blob/master/gif/kitti_preview.gif" width="723" height="224">
+ <img src="https://github.com/yan99033/CNN-SVO/blob/master/gif/robotcar_preview.gif" width="723" height="224">
 </p>
 
 Demo:
