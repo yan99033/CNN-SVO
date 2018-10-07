@@ -1,0 +1,14 @@
+cam_model: Pinhole
+cam_width: 1232
+cam_height: 375
+cam_fx: 721.5377
+cam_fy: 721.5377
+cam_cx: 609.5593
+cam_cy: 172.854
+cam_d0: 0.0
+cam_d1: 0.0
+cam_d2: 0.0
+cam_d3: 0.0
+
+# Parameters
+# http://uzh-rpg.github.io/rpg_svo/doc/classsvo_1_1Config.html#a84879703401d980d66bf2c0fcfc1f0b6

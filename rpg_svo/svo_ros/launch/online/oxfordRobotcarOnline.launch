@@ -1,0 +1,18 @@
+<launch>
+    <arg name="skipped_frames" default="200"/>
+
+  <node pkg="svo_ros" type="vo_monodepth_online" name="svo" clear_params="true" output="screen">
+    <param name="skipped_frames" value="$(arg skipped_frames)" />
+
+    <!-- Camera calibration file -->
+    <rosparam file="$(find svo_ros)/param/camera_oxford_robotcar.yaml" />
+
+    <!-- Parameter settings -->
+    <rosparam file="$(find svo_ros)/param/vo_kitti.yaml" />
+
+    <!-- Initial camera orientation, make it point downwards -->
+    <param name="init_rx" value="0.00" />
+    <param name="init_ry" value="0.00" />
+    <param name="init_rz" value="0.00" />
+  </node>
+</launch>

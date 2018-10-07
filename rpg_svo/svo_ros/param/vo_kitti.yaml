@@ -1,0 +1,44 @@
+grid_size: 30 # 20
+max_n_kfs: 0 # UNLIMITED
+core_n_kfs: 5 # KFs for BA
+core_n_kfs_df: 5 # 5 # (previous) KFs for depth filter
+n_pyr_levels: 4
+
+# Threshold
+triang_min_corner_score: 30
+reproj_thresh: 2.0
+poseoptim_thresh: 2.0
+max_fts: 200 # 200
+quality_min_fts: 50
+quality_max_drop_fts: 150 # 150
+min_num_features_kf: 100 # 120
+kfselect_mindist: 0.01 # 0.05
+
+# Motion model
+use_motion_model: true
+
+# pre-trained CNN model
+# cnn_model: "/home/user/catkin_ws/src/CNN-VO/monodepth/model/model_city2kitti.pb"
+
+# Directories
+sequence_path: "/media/user/path/to/kitti/dataset/sequences/00"
+image_folder: "image_2" # /media/user/path/to/kitti/dataset/sequences/00/image_2/
+#depth_folder: "disp_image_2_modelcity2kitti" # /media/user/path/to/kitti/dataset/sequences/00/disp_image_2_modelcity2kitti/
+
+# Trace (Log)
+trace_dir: "/home/user/results"
+
+# update iterations
+loba_num_iter: 10
+sparse_img_align_iter: 10
+structureoptim_num_iter: 10
+subpix_n_iter: 10
+
+# visualization
+point_marker_scale: 0.5
+camera_marker_scale: 3.0
+frame_marker_scale: 0.15
+
+# initialization
+init_min_disparity: 20
+init_min_tracked: 120
