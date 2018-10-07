@@ -5,8 +5,9 @@
  <img src="https://github.com/yan99033/CNN-SVO/blob/master/gif/robotcar_preview.gif" width="723" height="224">
 </p>
 
-Demo:
- https://www.youtube.com/watch?v=4oTzwoby3jw
+Demo: https://www.youtube.com/watch?v=4oTzwoby3jw
+
+Paper: [CNN-SVO: Improving the Mapping in Semi-Direct Visual Odometry Using Single-Image Depth Prediction](https://arxiv.org/pdf/1810.01011.pdf)
 
 This is an extension of the SVO with major improvements for the forward facing camera with the help of monocular depth estimation from CNN.
 
