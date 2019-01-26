@@ -76,7 +76,7 @@ roslaunch svo_ros kittiOffline00-02.launch
   * Use the corresponding roslaunch file
   
 #### Evaluation
-We used ATE evaluation code provided by ORBSLAM [here](https://github.com/raulmur/evaluate_ate_scale)with a little bit of modification.
+We used ATE evaluation code provided by ORBSLAM [here](https://github.com/raulmur/evaluate_ate_scale) with a little bit of modification.
 
 
 ```
@@ -85,8 +85,7 @@ cd eval
 ```
 python2 evaluate_ate_scale.py PATH_TO_GROUNDTRUTH PATH_TO_YOUR_OUTPUT PATH_TO_TIMESTAMPS_FILE --plot PATH_TO_PLOT_FILE_YOU_WANT_TO_SAVE
 ```
-
-as an example:
+As an example:
 ```
 python2 evaluate_ate_scale.py ground_truth/kitti_ground_truth/00.txt sample/seq00_CNN_SVO_KITTI_SAMPLE.txt ground_truth/kitti_ground_truth/00_times.txt --plot 00.png
 ```
