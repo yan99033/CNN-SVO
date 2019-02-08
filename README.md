@@ -89,6 +89,14 @@ As an example:
 ```
 python2 evaluate_ate_scale.py ground_truth/kitti_ground_truth/00.txt sample/seq00_CNN_SVO_KITTI_SAMPLE.txt ground_truth/kitti_ground_truth/00_times.txt --plot 00.png
 ```
+
+#### Possible extension
+We tried our best to improve the existing SVO, but this code is by no means perfect. That being said, we would like to point out some of the noticeable problems in our code:
+1. The original SVO is not designed to handle too much keyframe. Therefore, the system begins to slow down after accumulating too much KFs. For example, the system is running smoothly on Oxford Robotcar dataset because of the high frame-per-second (16 FPS); in contrast, it doesn't handle large amount of KFs well in KITTI dataset (10 FPS). 
+2. As mentioned in the paper, we use constant velocity model to handle extreme brightness condition (i.e., complete blank image), and then we back-project more points when new features can be observed. In practice, that makes sense for outdoor driving conditions. However, if your application requires proper relocalization, you would need to implement that by yourself.
+
+We hope that you can further extend the functionality of this work, and make the existing SVO even better (which is an awesome piece of work).
+
 #### Disclaimer
 
 The authors take no credit from [SVO](https://github.com/uzh-rpg/rpg_svo) and [Monodepth](https://github.com/mrharicot/monodepth), therefore the licenses should remain intact. Please cite their work if you find them helpful.
