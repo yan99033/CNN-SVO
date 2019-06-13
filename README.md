@@ -56,7 +56,7 @@ cd ~/catkin_ws/src/CNN-VO
 git clone https://github.com/yan99033/monodepth-cpp
 ```
 
-2. Enable/disable [Online mode](#online-mode) by toggling **TRUE/FALSE** in `svo_ros/CMakeLists.txt` and `svo/CMakeLists.txt`. Also make sure that Monodepth library and header file are linked properly, if [Online mode](#online-mode) is used. Note that [Online mode](#online-mode) is disabled by default
+2. Enable/disable [Online mode](#online-mode) by toggling **TRUE/FALSE** in `svo_ros/CMakeLists.txt` and `svo/CMakeLists.txt`. Also, make sure that Monodepth library and header file are linked properly if [Online mode](#online-mode) is used. Note that [Online mode](#online-mode) is disabled by default
 
 3. Compile the project
 ```
@@ -92,14 +92,14 @@ python2 evaluate_ate_scale.py ground_truth/kitti_ground_truth/00.txt sample/seq0
 
 #### Possible extension
 We tried our best to improve the existing SVO, but this code is by no means perfect. That being said, we would like to point out some of the noticeable problems in our code:
-1. The original SVO is not designed to handle too much keyframes (KFs). Therefore, the system begins to slow down after accumulating too much KFs. For example, the system is running smoothly on Oxford Robotcar dataset because of the high frame-per-second (16 FPS); in contrast, it doesn't handle large amount of KFs well on KITTI dataset (10 FPS). (It is always better to use a high FPS camera)
-2. As mentioned in the paper, we use constant velocity model to handle extreme brightness condition (i.e., complete blank image), and then we back-project more points when new features can be observed. In practice, that makes sense for outdoor driving conditions. However, if your application requires proper relocalization, you would need to implement that by yourself.
-3. The network is trained to process depth maps with the image size of 256x512x3. There are two image resizing steps (downsizing the image and upsizing the depth map) in the VO pipeline. Although we don't see any noticeable problem doing it, it is definitely faster to process the images with the size of 256x512x3.
+1. The original SVO is not designed to handle too many keyframes (KFs). Therefore, the system begins to slow down after accumulating too much KFs. For example, the system is running smoothly on Oxford Robotcar dataset because of the high frame-per-second (16 FPS); in contrast, it doesn't handle a large amount of KFs well on KITTI dataset (10 FPS). (It is always better to use a high FPS camera)
+2. As mentioned in the paper, we use a constant velocity model to handle extreme brightness condition (i.e., complete blank image), and then we back-project more points when new features can be observed. In practice, that makes sense for outdoor driving conditions. However, if your application requires proper relocalization, you would need to implement that by yourself.
+3. The network is trained to process depth maps with the image size of 256x512x3. There are two image resizing steps (downsizing the image and upsizing the depth map) in the VO pipeline. Although we don't see any noticeable problem doing it, it is indeed faster to process the images with the size of 256x512x3.
 4. It is a rather inefficient way to save and load the depth maps that are stored separately (i.e., depth_0.npy, depth_1, npy, ...). A better way to store and retrieve the depth maps in the [Offline mode](#offline-mode) is to save just ONE npy file (depth.npy) that has a shape of [total_num_images, width, height, 1]. 
 5. (Suggestion) It would be better to create another thread for the visualization. The current approach to visualization is that it publishes local map points, trajectory and camera frustum, and those markers stay permanent until you close the visualization (unless the delete marker operation is carried out). You can have a dedicated thread (like ORB-SLAM) that gets all the keyframes and publishes the poses, map points and trajectory.
 
-We hope that you can further extend the functionality of this work, and make the existing SVO even better (which is an awesome piece of work).
+We hope that you can further extend the functionality of this work, and make the existing SVO even better (which is an impressive piece of work).
 
 #### Disclaimer
 
-The authors take no credit from [SVO](https://github.com/uzh-rpg/rpg_svo) and [Monodepth](https://github.com/mrharicot/monodepth), therefore the licenses should remain intact. Please cite their work if you find them helpful.
+The authors take no credit from [SVO](https://github.com/uzh-rpg/rpg_svo) and [Monodepth](https://github.com/mrharicot/monodepth). Therefore the licenses should remain intact. Please cite their work if you find them helpful.
